@@ -136,7 +136,13 @@
     for(int i= 0; i<_content+2; i++){
         //摈弃的原因就是在不断alloc新的imageview。
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i* kWidth , 0, kWidth, kHeight)];
+        //事件传递响应
         imageView.userInteractionEnabled = YES;
+        //内容填充方式
+        [imageView setContentMode:UIViewContentModeScaleAspectFill];
+        //剪切超过边距
+        [imageView setClipsToBounds:YES];
+        //数据源
         for(UIImage *image1 in _imageArray){
             //判定数据源是UIImage还是url
             if([image1 isKindOfClass:[UIImage class]]){

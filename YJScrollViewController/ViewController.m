@@ -22,7 +22,6 @@
 - (void)addScrollView
 {
     //调用无限滚动view
-    
     YJScrollView *scrollView  = [[YJScrollView alloc] init];
     scrollView.frame = self.view.bounds;
     //滚动间隔时间
@@ -34,6 +33,7 @@
     [self.view addSubview:scrollView];
 }
 
+#pragma mark - YJScrollViewDelegate
 
 - (void)selectedAtIndex:(NSInteger)index
 {
