@@ -7,22 +7,29 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class YJScrollView;
 @protocol YJScrollViewDelegate <NSObject>
-
 @optional
 - (void)selectedAtIndex:(NSInteger)index;
+@end
 
+@protocol YJScrollViewDataSource <NSObject>
+@required
+- (NSArray *)dataSourceForSwiperView:(YJScrollView *)swiperView;
 @end
 
 @interface YJScrollView : UIView
 
-//图片数据源
-@property (nonatomic, strong) NSArray *imageArray;
-
-//轮播的间隔时间,单位秒
+//轮播的间隔时间,单位秒 默认1秒
 @property (nonatomic, assign) NSTimeInterval timeInval;
 
-@property (nonatomic, assign) id <YJScrollViewDelegate> delegate;
+//是否显示pagecontrol 默认YES
+@property (nonatomic, assign)  BOOL     pageControlEnable ;
 
+@property (nonatomic, assign) id <YJScrollViewDelegate> delegate;
+@property (nonatomic, assign) id <YJScrollViewDataSource> dataSource ;
+
+
+//重新加载数据源
+- (void)reloadData;
 @end

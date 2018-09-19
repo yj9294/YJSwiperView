@@ -21,6 +21,9 @@
 //重用队列
 @property (nonatomic, strong) NSArray *viewArray;
 
+//图片数据源
+@property (nonatomic, strong) NSArray *imageArray;
+
 //定时器,用来自动轮播使用
 @property (nonatomic, strong) NSTimer *timer;
 
@@ -39,7 +42,8 @@
 - (void)timerInit
 {
     if(self.imageArray.count){
-    _timer = [NSTimer scheduledTimerWithTimeInterval:_timeInval target:self selector:@selector(scan) userInfo:nil repeats:YES];
+        _timeInval = _timeInval?:1;
+        _timer = [NSTimer scheduledTimerWithTimeInterval:_timeInval target:self selector:@selector(scan) userInfo:nil repeats:YES];
     }
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 
@@ -86,22 +90,22 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     int num=scrollView.contentOffset.x/kWidth;
     if(num==0){
-        num=_content;
+        num = (int)_content;
     }
-    if(num==_content+1){
-        num=1;
+    if(num == (int)_content+1){
+        num = 1;
     }
-    _page.currentPage=num-1;
+    _page.currentPage = num-1;
 }
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
     int num=scrollView.contentOffset.x/kWidth;
     if(num==0){
-        num=_content;
+        num = (int)_content;
     }
-    if(num==_content+1){
-        num=1;
+    if(num == (int)_content+1){
+        num = 1;
     }
-    _page.currentPage=num-1;
+    _page.currentPage = num-1;
     CGFloat x = scrollView.contentOffset.x;
     if((int)x%(int)kWidth !=0){
         int scal = x/kWidth;
@@ -122,6 +126,12 @@
         _scrollView.contentOffset = CGPointMake(1*kWidth, 0);
     }
     return _scrollView;
+}
+
+- (void)setDataSource:(id<YJScrollViewDataSource>)dataSource{
+    _dataSource = dataSource;
+    NSAssert([self.dataSource respondsToSelector:@selector(dataSourceForSwiperView:)], @"not respondsToSelector dataSourceForSwiperView:");
+    self.imageArray = [self.dataSource dataSourceForSwiperView:self];
 }
 
 - (void)setImageArray:(NSArray *)imageArray
@@ -163,7 +173,9 @@
         [self.scrollView addSubview:imageView];
     }
     [self addSubview:self.scrollView];
-    [self addSubview:self.page];
+    if(self.pageControlEnable){
+        [self addSubview:self.page];
+    }
     //开启自动轮播
     [self timerInit];
 }
@@ -172,6 +184,7 @@
     if(!_page)
     {
         _page=[[UIPageControl alloc]initWithFrame:CGRectMake(0, kHeight-20, kWidth, 20)];
+        self.pageControlEnable = YES;
         [_page addTarget:self action:@selector(move) forControlEvents:UIControlEventValueChanged];
     }
     return _page;
@@ -179,10 +192,16 @@
 //点击事件代理出去
 - (void)touchBtn:(UIButton *)btn
 {
-    [self.delegate selectedAtIndex:btn.tag];
+    if([self.delegate respondsToSelector:@selector(selectedAtIndex:)]){
+        [self.delegate selectedAtIndex:btn.tag];
+    }
 }
 //- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 //{
 //    
 //}
+
+- (void)reloadData{
+    [self setDataSource:_dataSource];
+}
 @end

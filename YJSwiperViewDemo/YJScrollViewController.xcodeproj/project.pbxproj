@@ -13,8 +13,6 @@
 		C7286CFE1E936ED9002E257E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7286CFC1E936ED9002E257E /* Main.storyboard */; };
 		C7286D001E936ED9002E257E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7286CFF1E936ED9002E257E /* Assets.xcassets */; };
 		C7286D031E936ED9002E257E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7286D011E936ED9002E257E /* LaunchScreen.storyboard */; };
-		C7286D0E1E936ED9002E257E /* YJScrollViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C7286D0D1E936ED9002E257E /* YJScrollViewControllerTests.m */; };
-		C7286D191E936ED9002E257E /* YJScrollViewControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C7286D181E936ED9002E257E /* YJScrollViewControllerUITests.m */; };
 		C7286D281E936F00002E257E /* YJScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7286D271E936F00002E257E /* YJScrollView.m */; };
 		C7286D351E937E9D002E257E /* 1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7286D321E937E9D002E257E /* 1@2x.png */; };
 		C7286D361E937E9D002E257E /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C7286D331E937E9D002E257E /* 2.png */; };
@@ -66,11 +64,7 @@
 		C7286D021E936ED9002E257E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7286D041E936ED9002E257E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7286D091E936ED9002E257E /* YJScrollViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJScrollViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7286D0D1E936ED9002E257E /* YJScrollViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJScrollViewControllerTests.m; sourceTree = "<group>"; };
-		C7286D0F1E936ED9002E257E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7286D141E936ED9002E257E /* YJScrollViewControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJScrollViewControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7286D181E936ED9002E257E /* YJScrollViewControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJScrollViewControllerUITests.m; sourceTree = "<group>"; };
-		C7286D1A1E936ED9002E257E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7286D261E936F00002E257E /* YJScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJScrollView.h; sourceTree = "<group>"; };
 		C7286D271E936F00002E257E /* YJScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJScrollView.m; sourceTree = "<group>"; };
 		C7286D321E937E9D002E257E /* 1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1@2x.png"; sourceTree = "<group>"; };
@@ -140,8 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				C7286CF21E936ED9002E257E /* YJScrollViewController */,
-				C7286D0C1E936ED9002E257E /* YJScrollViewControllerTests */,
-				C7286D171E936ED9002E257E /* YJScrollViewControllerUITests */,
 				C7286CF11E936ED9002E257E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -182,24 +174,6 @@
 				C7286CF41E936ED9002E257E /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C7286D0C1E936ED9002E257E /* YJScrollViewControllerTests */ = {
-			isa = PBXGroup;
-			children = (
-				C7286D0D1E936ED9002E257E /* YJScrollViewControllerTests.m */,
-				C7286D0F1E936ED9002E257E /* Info.plist */,
-			);
-			path = YJScrollViewControllerTests;
-			sourceTree = "<group>";
-		};
-		C7286D171E936ED9002E257E /* YJScrollViewControllerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C7286D181E936ED9002E257E /* YJScrollViewControllerUITests.m */,
-				C7286D1A1E936ED9002E257E /* Info.plist */,
-			);
-			path = YJScrollViewControllerUITests;
 			sourceTree = "<group>";
 		};
 		C761DD3D211D895D00857D4E /* SwiperView */ = {
@@ -415,7 +389,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7286D0E1E936ED9002E257E /* YJScrollViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +396,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7286D191E936ED9002E257E /* YJScrollViewControllerUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
