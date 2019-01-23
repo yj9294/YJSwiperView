@@ -215,6 +215,7 @@
 				TargetAttributes = {
 					C7286CEF1E936ED9002E257E = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = BCP5872BLQ;
 						ProvisioningStyle = Automatic;
 					};
 					C7286D081E936ED9002E257E = {
@@ -457,10 +458,14 @@
 			baseConfigurationReference = 5E7E975D12205C402C6ADE54 /* Pods-YJScrollViewController.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BCP5872BLQ;
 				INFOPLIST_FILE = YJScrollViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cptech.prize.YJScrollViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -469,10 +474,14 @@
 			baseConfigurationReference = 5EC55219A6B483269BFA0DBD /* Pods-YJScrollViewController.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BCP5872BLQ;
 				INFOPLIST_FILE = YJScrollViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cptech.prize.YJScrollViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
