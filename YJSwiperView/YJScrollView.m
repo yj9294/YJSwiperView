@@ -66,6 +66,10 @@
     [_scrollView setContentOffset:CGPointMake((_page.currentPage+1)*kWidth, 0) animated:YES];
 }
 
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    self.page.frame = CGRectMake(0, kHeight-20, kWidth, 20);
+}
 
 #pragma mark UIScrollViewDelegate
 //图片轮播或者滑动的时候调用
@@ -136,6 +140,9 @@
 
 - (void)setImageArray:(NSArray *)imageArray
 {
+    if(!imageArray.count){
+        return;
+    }
     _imageArray =imageArray;
     self.content = _imageArray.count;
     //设置srollview的contentsize
@@ -200,6 +207,16 @@
 //{
 //    
 //}
+
+- (void)setPageColor:(UIColor *)pageColor{
+    _pageColor = pageColor;
+    [self.page setPageIndicatorTintColor:pageColor];
+}
+
+- (void)setPageTinColor:(UIColor *)pageTinColor{
+    _pageTinColor = pageTinColor;
+    [self.page setCurrentPageIndicatorTintColor:pageTinColor];
+}
 
 - (void)reloadData{
     [self setDataSource:_dataSource];

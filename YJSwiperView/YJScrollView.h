@@ -25,6 +25,8 @@
 
 //是否显示pagecontrol 默认YES
 @property (nonatomic, assign)  BOOL     pageControlEnable ;
+@property (nonatomic, strong)  UIColor  *pageColor ;
+@property (nonatomic, strong)  UIColor  *pageTinColor ;
 
 @property (nonatomic, assign) id <YJScrollViewDelegate> delegate;
 @property (nonatomic, assign) id <YJScrollViewDataSource> dataSource ;
