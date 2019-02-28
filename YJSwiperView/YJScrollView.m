@@ -163,10 +163,10 @@
         for(UIImage *image1 in _imageArray){
             //判定数据源是UIImage还是url
             if([image1 isKindOfClass:[UIImage class]]){
-                imageView.image = _imageArray[(i+2)%_content];
+                imageView.image = _imageArray[(i+_content-1)%_content];
             }
             else if([image1 isKindOfClass:[NSString class]]){
-                [imageView sd_setImageWithURL:[NSURL URLWithString:(NSString *)_imageArray[(i+2)%_content]]];
+                [imageView sd_setImageWithURL:[NSURL URLWithString:(NSString *)_imageArray[(i+_content-1)%_content]]];
             }
             else
                 return;
@@ -174,7 +174,7 @@
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = self.bounds;
         btn.backgroundColor = [UIColor clearColor];
-        btn.tag = (i+2)%_content;
+        btn.tag = (i+_content-1)%_content;
         [btn addTarget:self action:@selector(touchBtn:) forControlEvents:UIControlEventTouchUpInside];
         [imageView addSubview:btn];
         [self.scrollView addSubview:imageView];
