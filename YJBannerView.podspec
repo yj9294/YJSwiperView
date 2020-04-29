@@ -42,5 +42,5 @@ Pod::Spec.new do |s|
   s.source_files  = "YJBannerView/*"
 
   s.frameworks = 'Foundation', 'CoreGraphics', 'UIKit'
-
+  s.dependency 'Masonry'
 end
