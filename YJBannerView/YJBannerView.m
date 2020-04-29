@@ -112,7 +112,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     self.pageControl.currentPage = scrollView.contentOffset.x / self.frame.size.width - 0.5;
-    self.page = scrollView.contentOffset.x / self.width;
+    self.page = scrollView.contentOffset.x / self.frame.size.width;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
