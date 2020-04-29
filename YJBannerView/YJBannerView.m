@@ -97,9 +97,11 @@
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
+
 - (void)scroll {
     [self.scrollView setContentOffset:CGPointMake(UIApplication.sharedApplication.keyWindow.frame.size.width * (self.page + 1), 0) animated:YES];
 }
+
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     if (self.page == self.numberOfItems+1) {
