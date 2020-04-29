@@ -1,0 +1,22 @@
+PODS:
+  - SDWebImage (4.4.6):
+    - SDWebImage/Core (= 4.4.6)
+  - SDWebImage/Core (4.4.6)
+  - YJSwiperView (0.0.3):
+    - SDWebImage
+
+DEPENDENCIES:
+  - YJSwiperView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SDWebImage
+    - YJSwiperView
+
+SPEC CHECKSUMS:
+  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  YJSwiperView: 97a3c1822e27bccb4211bc659870528d9b47bf17
+
+PODFILE CHECKSUM: eef6c716a4cf57f030e4addd2742a020ff464248
+
+COCOAPODS: 1.5.3
