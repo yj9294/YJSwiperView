@@ -1,14 +1,14 @@
 //
-//  SLBannerView.m
+//  YJBannerView.m
 //  Silvers
 //
 //  Created by nico on 2020/4/10.
 //  Copyright © 2020 XX. All rights reserved.
 //
 
-#import "SLBannerView.h"
+#import "YJBannerView.h"
 
-@interface SLBannerView () <UIScrollViewDelegate>
+@interface YJBannerView () <UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, assign) NSInteger   numberOfItems;
 @property (nonatomic, strong) UIPageControl *pageControl;
@@ -17,7 +17,7 @@
 @property (nonatomic, assign)  NSInteger   page;
 @end
 
-@implementation SLBannerView
+@implementation YJBannerView
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -49,7 +49,7 @@
     }];
 }
 
-- (void)setDataSource:(id<SLBannerViewDataSource>)dataSource {
+- (void)setDataSource:(id<YJBannerViewDataSource>)dataSource {
     _dataSource = dataSource;
     if([self.dataSource respondsToSelector:@selector(numberOfItemsInbannerView:)]) {
         self.numberOfItems = [self.dataSource numberOfItemsInbannerView:self];

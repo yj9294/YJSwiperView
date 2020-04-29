@@ -9,15 +9,15 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@class SLBannerView;
-@protocol SLBannerViewDataSource <NSObject>
+@class YJBannerView;
+@protocol YJBannerViewDataSource <NSObject>
 @required
-- (NSInteger)numberOfItemsInbannerView:(SLBannerView *)bannerView ;
-- (UIView *)bannerView:(SLBannerView *)bannerView cellForItemAtIndex:(NSInteger)index ;
+- (NSInteger)numberOfItemsInbannerView:(YJBannerView *)bannerView ;
+- (UIView *)bannerView:(YJBannerView *)bannerView cellForItemAtIndex:(NSInteger)index ;
 @end
 
-@interface SLBannerView : UIView
-@property (nonatomic, weak)  id  <SLBannerViewDataSource>  dataSource;
+@interface YJBannerView : UIView
+@property (nonatomic, weak)  id  <YJBannerViewDataSource>  dataSource;
 @end
 
 NS_ASSUME_NONNULL_END
