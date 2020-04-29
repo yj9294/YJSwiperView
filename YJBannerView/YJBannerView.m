@@ -87,8 +87,8 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     if (self.numberOfItems) {
-        [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width * (self.numberOfItems + 2), self.view.frame.size.height)];
-        [self.scrollView setContentOffset:CGPointMake(self.view.frame.size.width, 0)];
+        [self.scrollView setContentSize:CGSizeMake(self.frame.size.width * (self.numberOfItems + 2), self.frame.size.height)];
+        [self.scrollView setContentOffset:CGPointMake(self.frame.size.width, 0)];
     }
 }
 
@@ -103,15 +103,15 @@
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     if (self.page == self.numberOfItems+1) {
-        self.scrollView.contentOffset = CGPointMake(self.view.frame.size.width, 0);
+        self.scrollView.contentOffset = CGPointMake(self.frame.size.width, 0);
     }
     if (self.page == 0) {
-        self.scrollView.contentOffset = CGPointMake(self.view.frame.size.width * (self.numberOfItems), 0);
+        self.scrollView.contentOffset = CGPointMake(self.frame.size.width * (self.numberOfItems), 0);
     }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    self.pageControl.currentPage = scrollView.contentOffset.x / self.view.frame.size.width - 0.5;
+    self.pageControl.currentPage = scrollView.contentOffset.x / self.frame.size.width - 0.5;
     self.page = scrollView.contentOffset.x / self.width;
 }
 
