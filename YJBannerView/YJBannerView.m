@@ -7,6 +7,7 @@
 //
 
 #import "YJBannerView.h"
+#import "Masonry.h"
 
 @interface YJBannerView () <UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -86,8 +87,8 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     if (self.numberOfItems) {
-        [self.scrollView setContentSize:CGSizeMake(self.width * (self.numberOfItems + 2), self.height)];
-        [self.scrollView setContentOffset:CGPointMake(self.width, 0)];
+        [self.scrollView setContentSize:CGSizeMake(self.frame.size.width * (self.numberOfItems + 2), self.frame.size.height)];
+        [self.scrollView setContentOffset:CGPointMake(self.frame.size.width, 0)];
     }
 }
 
@@ -96,29 +97,31 @@
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
+
 - (void)scroll {
-    [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * (self.page + 1), 0) animated:YES];
+    [self.scrollView setContentOffset:CGPointMake(UIApplication.sharedApplication.keyWindow.frame.size.width * (self.page + 1), 0) animated:YES];
 }
+
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     if (self.page == self.numberOfItems+1) {
-        self.scrollView.contentOffset = CGPointMake(self.width, 0);
+        self.scrollView.contentOffset = CGPointMake(self.frame.size.width, 0);
     }
     if (self.page == 0) {
-        self.scrollView.contentOffset = CGPointMake(self.width * (self.numberOfItems), 0);
+        self.scrollView.contentOffset = CGPointMake(self.frame.size.width * (self.numberOfItems), 0);
     }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    self.pageControl.currentPage = scrollView.contentOffset.x / self.width - 0.5;
-    self.page = scrollView.contentOffset.x / self.width;
+    self.pageControl.currentPage = scrollView.contentOffset.x / self.frame.size.width - 0.5;
+    self.page = scrollView.contentOffset.x / self.frame.size.width;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView.contentOffset.x == 0) {
-        scrollView.contentOffset = CGPointMake(scrollView.width * self.pageControl.numberOfPages, 0);
-    } else if (scrollView.contentOffset.x == scrollView.width * (self.pageControl.numberOfPages + 1)) {
-        scrollView.contentOffset = CGPointMake(scrollView.width, 0);
+        scrollView.contentOffset = CGPointMake(scrollView.frame.size.width * self.pageControl.numberOfPages, 0);
+    } else if (scrollView.contentOffset.x == scrollView.frame.size.width * (self.pageControl.numberOfPages + 1)) {
+        scrollView.contentOffset = CGPointMake(scrollView.frame.size.width, 0);
     }
 }
 
