@@ -1,15 +1,15 @@
 //
-//  YJBannerView.m
+//  YJSwiperView.m
 //  Silvers
 //
 //  Created by nico on 2020/4/10.
 //  Copyright © 2020 XX. All rights reserved.
 //
 
-#import "YJBannerView.h"
+#import "YJSwiperView.h"
 #import "Masonry.h"
 
-@interface YJBannerView () <UIScrollViewDelegate>
+@interface YJSwiperView () <UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, assign) NSInteger   numberOfItems;
 @property (nonatomic, strong) UIPageControl *pageControl;
@@ -18,7 +18,7 @@
 @property (nonatomic, assign)  NSInteger   page;
 @end
 
-@implementation YJBannerView
+@implementation YJSwiperView
 
 - (instancetype)init {
     if (self = [super init]) {

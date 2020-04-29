@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@class YJBannerView;
+@class YJSwiperView;
 @protocol YJBannerViewDataSource <NSObject>
 @required
-- (NSInteger)numberOfItemsInbannerView:(YJBannerView *)bannerView ;
+- (NSInteger)numberOfItemsInbannerView:(YJSwiperView *)bannerView ;
 - (UIView *)bannerView:(YJBannerView *)bannerView cellForItemAtIndex:(NSInteger)index ;
 @end
 
-@interface YJBannerView : UIView
+@interface YJSwiperView : UIView
 @property (nonatomic, weak)  id  <YJBannerViewDataSource>  dataSource;
 @end
 

@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "YJBannerView"
+  s.name         = "YJSwiperView"
   s.version      = "1.0.0"
   s.summary      = "A custom of swiper"
 
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/yj9294/YJSwiperVIew.git", :tag => "#{s.version}" }
 
 
-  s.source_files  = "YJBannerView/*"
+  s.source_files  = "YJSwiperView/*"
 
   s.frameworks = 'Foundation', 'CoreGraphics', 'UIKit'
   s.dependency 'Masonry'
