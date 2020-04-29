@@ -38,6 +38,7 @@
     } else {
     }
     [self addSubview:self.scrollView];
+    
     [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.bottom.equalTo(self);
     }];
