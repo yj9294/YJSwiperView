@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol YJBannerViewDataSource <NSObject>
 @required
 - (NSInteger)numberOfItemsInbannerView:(YJSwiperView *)bannerView ;
-- (UIView *)bannerView:(YJBannerView *)bannerView cellForItemAtIndex:(NSInteger)index ;
+- (UIView *)bannerView:(YJSwiperView *)bannerView cellForItemAtIndex:(NSInteger)index ;
 @end
 
 @interface YJSwiperView : UIView
