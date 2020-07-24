@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface YJSwiperView : UIView
+@property (nonatomic, strong) UIColor  *pageIndicatorTintColor;
+@property (nonatomic, strong) UIColor  *currentPageIndicatorTintColor;
 @property (nonatomic, weak)  id  <YJBannerViewDataSource>  dataSource;
 @end
 

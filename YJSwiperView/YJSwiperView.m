@@ -126,4 +126,12 @@
     }
 }
 
+- (void)setPageIndicatorTintColor:(UIColor *)pageIndicatorTintColor {
+    self.pageControl.pageIndicatorTintColor = pageIndicatorTintColor;
+}
+
+- (void)setCurrentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor {
+    self.pageControl.currentPageIndicatorTintColor = currentPageIndicatorTintColor;
+}
+
 @end
