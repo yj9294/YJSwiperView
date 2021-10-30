@@ -8,6 +8,7 @@
 
 #import "YJSwiperView.h"
 #import "Masonry.h"
+#import "YJWeakTimer.h"
 
 @interface YJSwiperView () <UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -47,7 +48,7 @@
     [self addSubview:self.pageControl];
     [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.scrollView.mas_centerX);
-        make.bottom.equalTo(self.scrollView.mas_bottom).offset(-16);
+        make.bottom.equalTo(self.scrollView.mas_bottom).offset(-5);
     }];
 }
 
@@ -94,15 +95,13 @@
 }
 
 - (void)addTimer {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.5 target:self selector:@selector(scroll) userInfo:nil repeats:YES];
+    self.timer = [YJWeakTimer scheduledTimerWithTimeInterval: self.timeInterval == 0.0 ? 3.5 : self.timeInterval target:self selector:@selector(scroll) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
-
 - (void)scroll {
-    [self.scrollView setContentOffset:CGPointMake(UIApplication.sharedApplication.keyWindow.frame.size.width * (self.page + 1), 0) animated:YES];
+    [self.scrollView setContentOffset:CGPointMake(self.frame.size.width * (self.page + 1), 0) animated:YES];
 }
-
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     if (self.page == self.numberOfItems+1) {
@@ -110,6 +109,11 @@
     }
     if (self.page == 0) {
         self.scrollView.contentOffset = CGPointMake(self.frame.size.width * (self.numberOfItems), 0);
+    }
+    
+    if([self.delegate respondsToSelector:@selector(bannerView:didScrollAtIndex:)]) {
+        NSInteger index = scrollView.contentOffset.x / self.frame.size.width - 0.5;
+        [self.delegate bannerView:self didScrollAtIndex:index];
     }
 }
 
@@ -124,6 +128,10 @@
     } else if (scrollView.contentOffset.x == scrollView.frame.size.width * (self.pageControl.numberOfPages + 1)) {
         scrollView.contentOffset = CGPointMake(scrollView.frame.size.width, 0);
     }
+    if([self.delegate respondsToSelector:@selector(bannerView:didScrollAtIndex:)]) {
+        NSInteger index = scrollView.contentOffset.x / self.frame.size.width - 0.5;
+        [self.delegate bannerView:self didScrollAtIndex:index];
+    }
 }
 
 - (void)setPageIndicatorTintColor:(UIColor *)pageIndicatorTintColor {
@@ -134,4 +142,10 @@
     self.pageControl.currentPageIndicatorTintColor = currentPageIndicatorTintColor;
 }
 
+- (UIView * _Nullable )cellForItemAtIndex:(NSInteger)index {
+    if (self.scrollView.subviews.count > index + 1) {
+        return self.scrollView.subviews[index + 1];
+    }
+    return nil;
+}
 @end
